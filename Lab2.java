@@ -44,8 +44,8 @@ public class Lab2
           createLight();
           Robot.turnLeft();
         }
-        //pre 
-        //post
+        //pre comb is light
+        //post comb is dark, robot is at top
   public static void darkenComb()
   {
     Robot.load("comb.txt");
@@ -57,13 +57,16 @@ public class Lab2
     completeComb();
     completeComb();
     
-    
+    //pre block is set to light color
+    //post block is dark
   }
   public static void createDark()
   {
       Robot.move();
       Robot.makeDark();
     }
+    //pre a single row is light color
+    //post a single row is dark color
   public static void rowDark()
   {
       turnRight();
@@ -75,6 +78,8 @@ public class Lab2
       createDark();
       createDark();
     }
+    //pre robot returns to starting column
+    //post robot returns to starting column
   public static void getBack()
   {
       Robot.turnLeft();
@@ -86,6 +91,8 @@ public class Lab2
       Robot.move();
       Robot.move();
     }
+    //pre entire comb is lighter color
+    //post entire comb is darker color
     public static void completeComb()
     {
         rowDark();
@@ -95,6 +102,8 @@ public class Lab2
     Robot.makeDark();
     Robot.move();
     }
+    //pre grid is blank
+    //post grid is checkered with alternating white and black
   public static void makeCheckered()
   {
     Robot.load("blank.txt");
@@ -118,6 +127,9 @@ public class Lab2
     
     
   }
+    //pre one row is blank
+    //post one row is checkered
+    
   public static void rowCheckered()
   {
       Robot.move();
@@ -132,12 +144,16 @@ public class Lab2
       Robot.move();
       Robot.makeDark();
     }
+    //pre the robot is on the completed checkered row 
+    //post the robot is ready to complete next row
   public static void turnCheckered()
   {
       turnRight();
       Robot.move();
       turnRight();
     }
+    //pre the robot is on the completed checkered row 
+    //post the robot is ready to complete next row 
   public static void otherCheckered()
   {
       Robot.turnLeft();
