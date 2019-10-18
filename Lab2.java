@@ -45,7 +45,7 @@ public class Lab2
           Robot.turnLeft();
         }
         //pre comb is light
-        //post comb is dark, robot is at top
+        //post Robot completes comb to make dark
   public static void darkenComb()
   {
     Robot.load("comb.txt");
@@ -55,18 +55,19 @@ public class Lab2
     completeComb();
     completeComb();
     completeComb();
-    completeComb();
+    lastStep();
     
-    //pre block is set to light color
-    //post block is dark
+    
   }
+  //pre the area in front of Robot is light
+  //post Robot moves forward and makes area dark
   public static void createDark()
   {
       Robot.move();
       Robot.makeDark();
     }
-    //pre a single row is light color
-    //post a single row is dark color
+    //pre Entire row next to robot is light
+    //post The robot is now at end of row, having made it dark
   public static void rowDark()
   {
       turnRight();
@@ -78,8 +79,8 @@ public class Lab2
       createDark();
       createDark();
     }
-    //pre robot returns to starting column
-    //post robot returns to starting column
+    //pre Robot is at end of dark row
+    //post Robot is back at front of row
   public static void getBack()
   {
       Robot.turnLeft();
@@ -91,9 +92,9 @@ public class Lab2
       Robot.move();
       Robot.move();
     }
-    //pre entire comb is lighter color
-    //post entire comb is darker color
-    public static void completeComb()
+    //pre Robot is unable to complete comb's row in efficent number of steps
+    //post Robot completes entire row in sufficent number of steps
+   public static void completeComb()
     {
         rowDark();
     getBack();
@@ -102,8 +103,18 @@ public class Lab2
     Robot.makeDark();
     Robot.move();
     }
-    //pre grid is blank
-    //post grid is checkered with alternating white and black
+    //pre Robot is unable to complete last row without crashing
+    //post Robot can successfully complete last row 
+  public static void lastStep()
+    {
+        rowDark();
+        getBack();
+    }
+   
+    
+    
+    //pre The grid is completely light
+    //post The gird is checkered with every other step being dark
   public static void makeCheckered()
   {
     Robot.load("blank.txt");
@@ -127,9 +138,8 @@ public class Lab2
     
     
   }
-    //pre one row is blank
-    //post one row is checkered
-    
+  //pre The row in front of robot is completly light
+  //post The robot is now at other end of row, row is checkered
   public static void rowCheckered()
   {
       Robot.move();
@@ -144,16 +154,16 @@ public class Lab2
       Robot.move();
       Robot.makeDark();
     }
-    //pre the robot is on the completed checkered row 
-    //post the robot is ready to complete next row
+    //pre Robot uses to many steps to right turn in fianl code
+    //post Robot uses method to simplify number of steps needed
   public static void turnCheckered()
   {
       turnRight();
       Robot.move();
       turnRight();
     }
-    //pre the robot is on the completed checkered row 
-    //post the robot is ready to complete next row 
+    //pre Robot uses to many steps to left turn in final code
+    //post Robot uses method to simplify number of steps needed
   public static void otherCheckered()
   {
       Robot.turnLeft();
